@@ -38,7 +38,6 @@ elseif (isset($_POST['button3']))
 }
 
 echo "<h2> $response </h2>";
-echo var_dump($_POST);
 /*(if (!isset($_SESSION))
 {
 	session_start();
@@ -59,7 +58,6 @@ if (@$SESSION_['postdata'])
 }*/
 unset($_POST);
 $_POST = array();
-echo var_dump($_POST);
 //header("Location: " . $_SERVER['PHP_SELF']);
 //exit;
 ?>
