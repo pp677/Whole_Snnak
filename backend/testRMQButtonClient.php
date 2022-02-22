@@ -4,7 +4,7 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 
-$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+$client = new rabbitMQClient("testRMQButton.ini","testServer");
 if (isset($argv[1]))
 {
   $msg = $argv[1];
@@ -15,7 +15,7 @@ else
 }
 
 $request = array();
-$request['type'] = "Login";
+$request['type'] = "test";
 $request['username'] = "steve";
 $request['password'] = "password";
 $request['message'] = $msg;
