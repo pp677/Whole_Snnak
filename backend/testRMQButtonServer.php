@@ -16,27 +16,24 @@ function requestProcessor($request)
 {
   echo "received request".PHP_EOL;
   var_dump($request);
-  if(!isset($request['type']))
+  if(!isset($request['button']))
   {
     return "ERROR: unsupported message type";
   }
-  switch ($request['type'])
+  switch ($request['button'])
   {
-    case "login":
-      return doLogin($request['username'],$request['password']);
-    case "validate_session":
-			return doValidate($request['sessionId']);
-		case "test":
-			return "thank you";
+		case "button1":
+			return "oy men";
+		case "button2":
+			return "hello men";
+		case "button3":
+			return "thank you men";
   }
   return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }
 
-$server = new rabbitMQServer("testRMQButton.ini","testServer");
-
-echo "testRabbitMQServer BEGIN".PHP_EOL;
+$server = new rabbitMQServer("../rmq/testRMQButton.ini","testServer");
 $server->process_requests('requestProcessor');
-echo "testRabbitMQServer END".PHP_EOL;
 exit();
 ?>
 
