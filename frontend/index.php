@@ -3,7 +3,7 @@
 	<head>
 		<!-- Required CSS Link -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+<title>Home Page</title>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -28,7 +28,7 @@
 </nav>
 	<body>
 
-		<h1>Hello World!  It Workie!</h1>
+		<h1 align="center">WholeSnnak</h1>
 		<form enctype="multipart/form-data" autocomplete="off" method="post">
 			<button type="submit" name="button1" class="btn btn-primary">This</button>
 			<button type="submit" name="button2" class="btn btn-secondary">That</button>
