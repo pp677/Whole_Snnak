@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Registration Page</title>
     <link rel="stylesheet" href="loginStyle.css">
 
                 <!-- Required CSS Link -->
@@ -23,7 +23,7 @@
           <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Register</a>
+          <a class="nav-link" href="registration.php">Register</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="login.php">Login</a>
@@ -34,7 +34,6 @@
     </div>
   </div>
 </nav>
-                <title> yemen </title>
         </head>
         <body>
 <!-- Required JavaScript Link -->
@@ -43,23 +42,62 @@
         <h1>Register</h1>
         <form method="post">
             <div class="textField">
-                <input type="text" required>
+                <input type="text" name="firstname" required>
+								<label for="firstname">First Name</label>
+						</div>
+            <div class="textField">
+                <input type="text" name="lastname" required>
+								<label for="lastname">Last Name</label>
+						</div>
+            <div class="textField">
+                <input type="text" name="username" required>
                 <label for="username">Username</label>
             </div>
             <div class="textField">
-                <input type="text" required>
+                <input type="text" name="password" required>
                 <label for="password">Password</label>
 	    </div>
-		 <div class="textField">
-                <input type="text" required>
-                <label for="cpassword">Confirm Password</label>
-            </div>
 
             <input type="button" value="Register">
         </form>
     </div>
 
 
-        </body>
-</html>
+				</body>
+<?php
+require_once('../rmq/path.inc');
+require_once('../rmq/get_host_info.inc');
+require_once('../rmq/rabbitMQLib.inc');
 
+$client = new rabbitMQClient("../rmq/register.ini", "testServer");
+if (isset($_POST['firstname']) 
+	and isset($_POST['lastname']) 
+	and isset($_POST['username']) 
+	and isset($_POST['password']))
+{
+		$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+		$request = array('firstname'=>$_POST['firstname'], 
+									'lastname'=>$_POST['lastname'],
+									'username'=>$_POST['username'],
+									'password'=>$password,
+									'type'=>'register');
+	$response = $client->send_request($request);
+	switch ($response)
+	{
+		case 'created':
+			echo 'Successfully created. Redirecting to login page in 3 seconds';
+			header("refresh: 3; url=login.php");
+			exit();
+		case 'notCreated':
+			echo 'Username already taken. Please re-enter different username in 3 seconds';
+			header("refresh: 3");
+			exit();
+	}
+}
+/*else
+{
+	echo "Please fill in all fields to proceed";
+}*/
+
+?>
+</html>

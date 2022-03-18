@@ -39,19 +39,38 @@
         <h1>Login</h1>
         <form method="post">
             <div class="textField">
-                <input type="text" required>
+                <input type="text" name="username" required>
                 <label for="username">Username</label>
             </div>
             <div class="textField">
-                <input type="text" required>
+                <input type="text" name="password" required>
                 <label for="password">Password</label>
             </div>
             <input type="button" value="Login">
         </form>
     </div>
-    
-    
 </body>
+<?php
+require_once('../rmq/path.inc');
+require_once('../rmq/get_host_info.inc');
+require_once('../rmq/rabbitMQLib.inc');
+
+$client = new rabbitMQClient("../rmq/login.ini", "testServer");
+if (isset($_POST['username']) and isset($_POST['password']))
+{
+	$request = array('username'=>$_POST['username'], 'password'=>$_POST['password'], 'type'=>'login');
+	$response = $client->send_request($request);
+	switch ($response['msg'])
+	{
+		case 'Username or password are invalid. Please retry':
+			echo $response['msg'];
+			break;
+		case 'Verified credentials':
+			header("refresh: 2; url=userDashboard.html");
+			exit();
+	}
+}
+?>
 </html>
 
 
