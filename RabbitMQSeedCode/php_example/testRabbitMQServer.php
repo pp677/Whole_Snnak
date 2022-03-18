@@ -6,10 +6,18 @@ require_once('rabbitMQLib.inc');
 
 function doLogin($username,$password)
 {
-    // lookup username in databas
-    // check password
-    return true;
-    //return false if not valid
+		$client = new rabbitMQClient("testRabbitMQDB.ini","testServer");
+		if (isset($argv[1]))
+		{
+			$msg = $argv[1];
+		}
+		else
+		{
+			$msg = "testing connection to DB";
+		}
+		$validate = array("type"=>"login", "username"=>"$username", "password"=>"$password", "message"=>"$msg");
+		$response = $client->send_request($validate);
+    return $response;
 }
 
 function requestProcessor($request)
