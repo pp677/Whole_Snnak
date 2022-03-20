@@ -54,7 +54,7 @@
                 <label for="username">Username</label>
             </div>
             <div class="textField">
-                <input type="text" name="password" required>
+		<input type="password" name="password" required>
                 <label for="password">Password</label>
 	    </div>
 
