@@ -36,6 +36,7 @@ function requestProcessor($request)
 				return ('msg'=>'Verified credentials');
 			}
 		}
+	}
 }
 
 $server = new rabbitMQServer("../rmq/loginToDB.ini","testServer");

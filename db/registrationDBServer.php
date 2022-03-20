@@ -31,6 +31,7 @@ function requestProcessor($request)
 		{
 			return 'notCreated';
 		}
+	}
 }
 
 $server = new rabbitMQServer("../rmq/registerToDB.ini","testServer");
