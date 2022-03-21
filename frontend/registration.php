@@ -78,21 +78,22 @@ if (isset($_POST['firstname'])
 {
 		echo $_POST['firstname'] . $_POST['lastname'] . $_POST['username'] . $_POST['password'];
 		$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-		$request = array('firstname'=>$_POST['firstname'], 
-									'lastname'=>$_POST['lastname'],
-									'username'=>$_POST['username'],
-									'password'=>$password,
-									'type'=>'register');
+		$request = array(
+			'firstname'=>$_POST['firstname'], 
+			'lastname'=>$_POST['lastname'],
+			'username'=>$_POST['username'],
+			'password'=>$password,
+			'type'=>'register');
 	$response = $client->send_request($request);
 	switch ($response)
 	{
 		case 'created':
 			echo 'Successfully created. Redirecting to login page in 3 seconds';
-			echo "<meta http-equiv='refresh' content=3;URL=login.php'>";
+			echo "<meta http-equiv='refresh' content='3;URL=login.php'>";
 			exit();
 		case 'notCreated':
 			echo 'Username already taken. Please re-enter different username in 3 seconds';
-			echo "<meta http-equiv='refresh' content=3;URL=registration.php'>";
+			echo "<meta http-equiv='refresh' content='3;URL=registration.php'>";
 			exit();
 	}
 }
