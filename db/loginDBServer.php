@@ -1,6 +1,5 @@
 #!/usr/bin/php
 <?php
-require_once('connectDB.php');
 require_once('../rmq/path.inc');
 require_once('../rmq/get_host_info.inc');
 require_once('../rmq/rabbitMQLib.inc');
@@ -8,6 +7,10 @@ require_once('../rmq/rabbitMQLib.inc');
 function requestProcessor($request)
 {
 	echo "received request".PHP_EOL;
+	$host = "localhost";
+	$user = "root";
+	$pass = "root";
+	$db = "WholeSnnak";
 	$conn = mysqli_connect($host, $user, $pass, $db);
 	$username = $request['username'];
 	$password = $request['password'];

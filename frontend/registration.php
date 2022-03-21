@@ -58,7 +58,7 @@
                 <label for="password">Password</label>
 	    </div>
 
-            <input type="button" value="Register">
+            <input type="submit" value="Register">
         </form>
     </div>
 
@@ -70,6 +70,7 @@ require_once('../rmq/get_host_info.inc');
 require_once('../rmq/rabbitMQLib.inc');
 
 $client = new rabbitMQClient("../rmq/register.ini", "testServer");
+echo $_POST['firstname'];// . $_POST['lastname'] . $_POST['username'] . $_POST['password'];
 if (isset($_POST['firstname']) 
 	and isset($_POST['lastname']) 
 	and isset($_POST['username']) 
@@ -92,7 +93,7 @@ if (isset($_POST['firstname'])
 		case 'notCreated':
 			echo 'Username already taken. Please re-enter different username in 3 seconds';
 			header("refresh: 3");
-		exit();
+			exit();
 	}
 }
 /*else
