@@ -22,7 +22,7 @@ function requestProcessor($request)
 	else
 	{
 		echo "Successfully connected to MySQL\nQuerying...\n";
-		$query = "select * from user where username = '$username'";
+		$query = "SELECT * FROM user WHERE username = '$username'";
 		$loginUser = mysqli_query($conn, $query);
 		$result = mysqli_num_rows($loginUser);
 

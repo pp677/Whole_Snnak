@@ -24,7 +24,7 @@ function requestProcessor($request)
 	else
 	{
 		echo "Successfully connected to MySQL\nQuerying...\n";
-		$query = "insert into user (firstname, lastname, username, password) values ('$firstname', '$lastname', '$username', '$password')";
+		$query = "INSERT INTO user (firstname, lastname, username, password) VALUES ('$firstname', '$lastname', '$username', '$password')";
 		$createUser = mysqli_query($conn, $query);
 		if ($createUser)
 		{
