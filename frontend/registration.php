@@ -1,4 +1,3 @@
-<?php ob_start(); ?>
 <!doctype html>
 <html lang="en" >
 
@@ -89,11 +88,11 @@ if (isset($_POST['firstname'])
 	{
 		case 'created':
 			echo 'Successfully created. Redirecting to login page in 3 seconds';
-			header("refresh: 3; Location: login.php");
+			echo "<meta http-equiv='refresh' content=3;URL=login.php'>";
 			exit();
 		case 'notCreated':
 			echo 'Username already taken. Please re-enter different username in 3 seconds';
-			header("refresh: 3");
+			echo "<meta http-equiv='refresh' content=3;URL=registration.php'>";
 			exit();
 	}
 }

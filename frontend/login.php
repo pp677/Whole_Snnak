@@ -1,4 +1,4 @@
-<?php session_start(); ob_start(); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,13 +65,13 @@ if (isset($_POST['username']) and isset($_POST['password']))
 	{
 		case 'Username or password are invalid. Please retry':
 			echo $response['msg'];
-			header("refresh: 3;");
+			echo "<meta http-equiv='refresh' content='2;URL=login.php'>";
 			exit();
 		case 'Verified credentials':
 			$_SESSION['isVerified'] = true;
 			$_SESSION['username'] = $_POST['username'];
 			unset($_POST);
-			header("refresh: 2; Location: userDashboard.php");
+			echo "<meta http-equiv='refresh' content='2;URL=userDashboard.php'>";
 			exit();
 	}
 }
