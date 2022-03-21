@@ -25,7 +25,7 @@ function requestProcessor($request)
 
 		if ($result == 0)
 		{
-			return ('msg'=>'Username or password are invalid. Please retry');
+			return array('msg'=>"Username or password are invalid. Please retry");
 		}
 		else
 		{
