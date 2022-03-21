@@ -75,6 +75,7 @@ if (isset($_POST['firstname'])
 	and isset($_POST['username']) 
 	and isset($_POST['password']))
 {
+		echo $_POST['firstname'] . $_POST['lastname'] . $_POST['username'] . $_POST['password'];
 		$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 		$request = array('firstname'=>$_POST['firstname'], 
 									'lastname'=>$_POST['lastname'],
@@ -91,7 +92,7 @@ if (isset($_POST['firstname'])
 		case 'notCreated':
 			echo 'Username already taken. Please re-enter different username in 3 seconds';
 			header("refresh: 3");
-			exit();
+		exit();
 	}
 }
 /*else
