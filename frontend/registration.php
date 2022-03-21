@@ -88,7 +88,7 @@ if (isset($_POST['firstname'])
 	{
 		case 'created':
 			echo 'Successfully created. Redirecting to login page in 3 seconds';
-			header("refresh: 3; url=login.php");
+			header("refresh: 3; Location: login.php");
 			exit();
 		case 'notCreated':
 			echo 'Username already taken. Please re-enter different username in 3 seconds';

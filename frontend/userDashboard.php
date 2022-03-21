@@ -12,7 +12,7 @@
 			if ($_SESSION['isVerified'] == false)
 			{
 				echo "<h2>You shouldn't be here, 3 seconds you will disappear</h2>";
-				header("refresh: 3; url=login.php");
+				header("refresh: 3; Location: login.php");
 			}
 			else
 			{

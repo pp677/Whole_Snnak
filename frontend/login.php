@@ -70,7 +70,7 @@ if (isset($_POST['username']) and isset($_POST['password']))
 			$_SESSION['isVerified'] = true;
 			$_SESSION['username'] = $_POST['username'];
 			unset($_POST);
-			header("refresh: 2; url=userDashboard.php");
+			header("refresh: 2; Location: userDashboard.php");
 			exit();
 	}
 }
