@@ -33,7 +33,7 @@ function requestProcessor($request)
 			$hash = $row['password'];
 			if (password_verify($password, $hash))
 			{
-				return ('msg'=>'Verified credentials');
+				return array('msg'=>'Verified credentials');
 			}
 		}
 	}
