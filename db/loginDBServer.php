@@ -28,7 +28,7 @@ function requestProcessor($request)
 
 		if ($result == 0)
 		{
-			echo "no results from query\n";
+			echo mysqli_error($conn) . "\n no results from query\n";
 			return array('msg'=>"Username or password are invalid. Please retry");
 		}
 		else

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +67,10 @@ if (isset($_POST['username']) and isset($_POST['password']))
 			echo $response['msg'];
 			break;
 		case 'Verified credentials':
-			header("refresh: 2; url=userDashboard.html");
+			$_SESSION['isVerified'] = true;
+			$_SESSION['username'] = $_POST['username'];
+			unset($_POST);
+			header("refresh: 2; url=userDashboard.php");
 			exit();
 	}
 }
