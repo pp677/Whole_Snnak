@@ -28,10 +28,12 @@ function requestProcessor($request)
 		$createUser = mysqli_query($conn, $query);
 		if ($createUser)
 		{
+			echo "created";
 			return 'created';
 		}
 		else
 		{
+			echo "not created";
 			return 'notCreated';
 		}
 	}

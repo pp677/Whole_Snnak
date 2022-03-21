@@ -28,6 +28,7 @@ function requestProcessor($request)
 
 		if ($result == 0)
 		{
+			echo "no results from query";
 			return array('msg'=>"Username or password are invalid. Please retry");
 		}
 		else
@@ -36,6 +37,7 @@ function requestProcessor($request)
 			$hash = $row['password'];
 			if (password_verify($password, $hash))
 			{
+				echo "verified credentials";
 				return array('msg'=>'Verified credentials');
 			}
 		}
