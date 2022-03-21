@@ -18,6 +18,7 @@ function requestProcessor($request)
 			$client = new rabbitMQClient("../rmq/loginToDB.ini", "testServer");
 			$validate = $request;
 			$response = $client->send_request($validate);
+			echo "sending response back to client...";
 			return $response;
   }
 }
