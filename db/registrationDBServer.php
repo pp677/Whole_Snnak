@@ -23,17 +23,17 @@ function requestProcessor($request)
 	}
 	else
 	{
-		echo "Successfully connected to MySQL\nQuerying...";
-		$query = "insert into user values('$firstname', '$lastname', '$username', '$password')";
+		echo "Successfully connected to MySQL\nQuerying...\n";
+		$query = "insert into user (firstname, lastname, username, password) values ('$firstname', '$lastname', '$username', '$password')";
 		$createUser = mysqli_query($conn, $query);
 		if ($createUser)
 		{
-			echo "created";
+			echo "created\n";
 			return 'created';
 		}
 		else
 		{
-			echo "not created";
+			echo "not created\n";
 			return 'notCreated';
 		}
 	}

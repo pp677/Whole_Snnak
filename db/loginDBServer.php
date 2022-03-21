@@ -21,14 +21,14 @@ function requestProcessor($request)
 	}
 	else
 	{
-		echo "Successfully connected to MySQL\nQuerying...";
+		echo "Successfully connected to MySQL\nQuerying...\n";
 		$query = "select * from user where username = '$username'";
 		$loginUser = mysqli_query($conn, $query);
 		$result = mysqli_num_rows($loginUser);
 
 		if ($result == 0)
 		{
-			echo "no results from query";
+			echo "no results from query\n";
 			return array('msg'=>"Username or password are invalid. Please retry");
 		}
 		else
@@ -37,7 +37,7 @@ function requestProcessor($request)
 			$hash = $row['password'];
 			if (password_verify($password, $hash))
 			{
-				echo "verified credentials";
+				echo "verified credentials\n";
 				return array('msg'=>'Verified credentials');
 			}
 		}
