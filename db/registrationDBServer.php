@@ -33,7 +33,7 @@ function requestProcessor($request)
 		}
 		else
 		{
-			echo "not created\n";
+			echo mysqli_error() . "\n not created\n";
 			return 'notCreated';
 		}
 	}
