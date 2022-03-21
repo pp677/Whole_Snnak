@@ -25,7 +25,7 @@ function requestProcessor($request)
 	{
 		echo "Successfully connected to MySQL\nQuerying...";
 		$query = "insert into user values('$firstname', '$lastname', '$username', '$password')";
-		$createUser = mysqli_query($query);
+		$createUser = mysqli_query($conn, $query);
 		if ($createUser)
 		{
 			return 'created';
