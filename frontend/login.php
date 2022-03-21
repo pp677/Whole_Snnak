@@ -65,7 +65,8 @@ if (isset($_POST['username']) and isset($_POST['password']))
 	{
 		case 'Username or password are invalid. Please retry':
 			echo $response['msg'];
-			break;
+			header("refresh: 3;");
+			exit();
 		case 'Verified credentials':
 			$_SESSION['isVerified'] = true;
 			$_SESSION['username'] = $_POST['username'];

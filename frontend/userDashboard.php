@@ -13,6 +13,7 @@
 			{
 				echo "<h2>You shouldn't be here, 3 seconds you will disappear</h2>";
 				header("refresh: 3; Location: login.php");
+				exit();
 			}
 			else
 			{
