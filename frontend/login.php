@@ -59,6 +59,11 @@ require_once('../rmq/rabbitMQLib.inc');
 echo "<h3>Post: </h3>";
 var_dump($_POST);
 $client = new rabbitMQClient("../rmq/login.ini", "testServer");
+if (isset($_SESSION['username']))
+{
+	echo "<meta http-equiv='refresh' content='2;URL=userDashboard.php'>";
+}
+
 if (isset($_POST['username']) and isset($_POST['password']))
 {
 	echo "<h3> " . $_POST['username'] . $_POST['password'] . " </h3>";
