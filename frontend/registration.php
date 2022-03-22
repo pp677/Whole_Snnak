@@ -69,6 +69,8 @@ require_once('../rmq/path.inc');
 require_once('../rmq/get_host_info.inc');
 require_once('../rmq/rabbitMQLib.inc');
 
+echo "<h3>Post: </h3>";
+var_dump($_POST);
 $client = new rabbitMQClient("../rmq/register.ini", "testServer");
 echo $_POST['firstname'];// . $_POST['lastname'] . $_POST['username'] . $_POST['password'];
 if (isset($_POST['firstname']) 
