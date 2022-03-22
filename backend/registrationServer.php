@@ -4,6 +4,18 @@ require_once('../rmq/path.inc');
 require_once('../rmq/get_host_info.inc');
 require_once('../rmq/rabbitMQLib.inc');
 
+function queryDatabase($request)
+{
+	echo "check for hitting db function\n";
+	$client = new rabbitMQClient("../rmq/registerToDB.ini", "testServer");
+	echo "initializing RMQ client\n";
+	$validate = $request;
+	echo "sending retrieved message to db server unbothered\n";
+	$response = $client->send_request($validate);
+	echo "sending response back to client...\n" . var_dump($response);
+	return $response;
+}
+
 function requestProcessor($request)
 {
   echo "received request".PHP_EOL;
@@ -15,12 +27,10 @@ function requestProcessor($request)
   switch ($request['type'])
   {
 		case "register":
-			$client = new rabbitMQClient("../rmq/registerToDB.ini", "testServer");
-			$validate = $request;
-			$response = $client->send_request($validate);
-			echo "sending response back to client...\n $response";
-			return $response;
-  }
+			return queryDatabase($request);
+	}
+	echo "couldn't get message";
+	return "couldn't get message";
 }
 
 $server = new rabbitMQServer("../rmq/register.ini","testServer");
