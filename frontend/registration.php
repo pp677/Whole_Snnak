@@ -58,7 +58,7 @@
                 <label for="password">Password</label>
 	    </div>
 
-            <button type="submit" value="Register">
+            <button type="input" value="Register">
         </form>
     </div>
 
