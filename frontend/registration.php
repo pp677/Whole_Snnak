@@ -78,13 +78,16 @@ if (isset($_POST['firstname'])
 {
 		echo $_POST['firstname'] . $_POST['lastname'] . $_POST['username'] . $_POST['password'];
 		$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+		echo "<h3>Hashing password</h3>";
 		$request = array(
 			'firstname'=>$_POST['firstname'], 
 			'lastname'=>$_POST['lastname'],
 			'username'=>$_POST['username'],
 			'password'=>$password,
 			'type'=>'register');
-	$response = $client->send_request($request);
+		echo "<h3>Writing message to exchange</h3>";
+		$response = $client->send_request($request);
+		echo "<h3>Sending response to servers</h3>";
 	switch ($response)
 	{
 		case 'created':

@@ -17,6 +17,7 @@ function doLogin($username,$password)
 		}
 		$validate = array("type"=>"login", "username"=>"$username", "password"=>"$password", "message"=>"$msg");
 		$response = $client->send_request($validate);
+		echo "giving response to frontend...\n $response";
     return $response;
 }
 
