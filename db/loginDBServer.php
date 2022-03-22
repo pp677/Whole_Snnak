@@ -42,6 +42,8 @@ function requestProcessor($request)
 			}
 		}
 	}
+	echo "nothing from database";
+	return array('msg'=>'Username or password are invalid. Please retry');
 }
 
 $server = new rabbitMQServer("../rmq/loginToDB.ini","testServer");
