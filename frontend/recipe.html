@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>API</title>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
-                       crossorigin="anonymous"></script>
-		<script src="script.js"></script>
-	<script>
-	</script>
-
-	</head>
-	<body>
-		<div class="input-group mb-3">
-  			<div class="input-group-prepend">
-    			<span class="input-group-text" id="inputGroup-sizing-default">Search</span>
-  			</div>
-  			<input type="text" class="form-control"id="search" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-		</div>
-		<button onclick="getInputValue()" class="btn btn-primary" type="submit">Search</button>
-		<div class="container">
-		<p class="recipe"></p>
-		</div>
-	</body>
-	
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="script2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer="true" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Search</span>
+        </div>
+        <input type="text" class="form-control"id="search" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    </div>
+    <button onclick="searchForRecipe()" class="btn btn-primary" type="submit">Search</button>
+    <div id = "cards" class="cards">
+    </div>
+</body>
 </html>
