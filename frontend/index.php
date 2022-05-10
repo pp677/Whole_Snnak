@@ -5,7 +5,7 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <title>Home Page</title>
 <link rel="stylesheet" href="loginStyle.css">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php">Whole Snnak</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,17 +14,11 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="registration.php">Register</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="login.php">Login</a>
 	</li>
-	 <li class="nav-item">
-          <a class="nav-link" href="apiTest.html">Search Recipe</a>
-        </li>
 
         </li>
       </ul>
@@ -33,13 +27,14 @@
 </nav>
 	<body>
 
-		<h1 align="center">WholeSnnak</h1>
-		<form enctype="multipart/form-data" autocomplete="off" method="post">
-			<button type="submit" name="button1" class="btn btn-primary">This</button>
-			<button type="submit" name="button2" class="btn btn-secondary">That</button>
-			<button type="submit" name="button3" class="btn btn-dark">Third</button>
-		</form>
+		<div class="row justify-content-md-center mt-5">
+			<div class="col-md-auto my-auto">
+			<p class="display-1"> WholeSnnak </p>
+			</div>
+		</div>
+		<center>  <img src="./Wholesnnak.png"> </center>
 
+		
 <?php
 require_once('../rmq/path.inc');
 require_once('../rmq/get_host_info.inc');

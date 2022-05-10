@@ -9,31 +9,66 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script defer="true" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.php">Whole Snnak</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="registration.php">Register</a>
+        </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
     <title>Meal Planner</title>
 </head>
 <body>
-    <div>
-        <div class="input-group-prepend">
+	<div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-default">Search</span>
         </div>
-        <div class="d-flex flex-row bd-highlight mb-3">
-            <input type="text" placeholder="Height(cm)" class="form-control"id="height" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-            <input type="text" placeholder="Weight(lbs)" class="form-control"id="weight" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-            <input type="text" placeholder="Goal Weight(lbs)" class="form-control"id="goal" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="container">
-            <input type="radio" name="levels" value="1.2"/> Rarely </br>
-            <input type="radio" name="levels" value="1.37"/> Light </br>
-            <input type="radio" name="levels" value="1.5"/> Moderate </br>
-            <input type="radio" name="levels" value="1.73"/> Active </br>
-            <input type="radio" name="levels" value="1.9"/> Very Active </br>
+	<div class="row mx-3 mt-2">
+		<div class="col">
+			<input type="text" placeholder="Height(cm)" class="form-control"id="height" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+		</div>
+		<div class="col">
+			<input type="text" placeholder="Weight(kgs)" class="form-control"id="weight" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+		</div>
+		<div class="col">
+			<input type="text" placeholder="Goal Weight(kgs)" class="form-control"id="goal" aria-label="Default" aria-describedby="inputGroup-sizing-default">
 
-
+		</div>
+	</div>
+	<div class="row mx-3">
+		<div class="col my-2">
+	       		<input type="radio" name="levels" value="1.2"/> Rarely </br>
+          		<input type="radio" name="levels" value="1.37"/> Light </br>
+          		<input type="radio" name="levels" value="1.5"/> Moderate </br>
+           		<input type="radio" name="levels" value="1.73"/> Active </br>
+        		<input type="radio" name="levels" value="1.9"/> Very Active </br>
+		</div>
+	</div>
+	<div class="row mx-3 mb-2">
+		<div class="col">
+			<button onclick="bmiCalc()" class="btn btn-primary" type="submit">Search</button>
+		</div>
+	</div>       
+	<div class="container-md bg-white border rounded p-4 mb-1">
+		<p id="message"></p>	
+	</div>	
+    <div class="container-md bg-white border rounded p-4 mb-5" style="">
+            <div id = "cards" class= "row g-3">
+            </div>
         </div>
-       
-    </div>
-    <button onclick="bmiCalc()" class="btn btn-primary" type="submit">Search</button>
-    <div id = "cards" class="cards">
-    </div>
+
 </body>
 </html>
